@@ -5,6 +5,9 @@
 
 
 # Get the id number of the touchpad.
+
+notify="notify-send --icon=gtk-info -t 25"
+
 tp_id=`xinput list | grep -i touchpad | awk '{ print $6 }' | sed 's/id=//'`
 
 
@@ -16,13 +19,13 @@ if [ $tp_enabled = 0 ]
 then
   # The touchpad is currently disabled, so turn it on.
   xinput set-prop $tp_id "Device Enabled" 1
-  echo "Touchpad now on."
+  $notify "Touchpad now on."
 elif [ $tp_enabled = 1 ]
 then
   # The touchpad is currently enabled, so turn it off.
   xinput set-prop $tp_id "Device Enabled" 0
-  echo "Touchpad now off."
+  $notify "Touchpad now off."
 else
-  echo "tp_toggle: Could not get touchpad status from xinput."
+  $notify "tp_toggle: Could not get touchpad status from xinput."
   exit 1
 fi
