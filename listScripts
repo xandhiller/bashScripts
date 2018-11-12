@@ -1,0 +1,15 @@
+#! /bin/bash
+
+dir="~/.scripts"
+newScript="+ New Script"
+dmenu="dmenu -i -l 50"
+suffix=".sh"
+
+choice="$((echo $newScript && find ~/.scripts -name '*.sh') | $dmenu)"
+
+if [ "$choice" = "$newScript" ]
+then
+  name="$(echo "Enter Name of Script" | $dmenu )"
+  i3-msg exec --no-startup-id urxvt vim 
+fi
+

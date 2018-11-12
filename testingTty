@@ -1,0 +1,4 @@
+#! /bin/sh --
+
+read pass < /dev/tty
+echo $pass

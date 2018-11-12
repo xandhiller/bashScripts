@@ -1,0 +1,20 @@
+#! /bin/bash
+
+dir="~/Documents/Textbooks/"
+
+# List the contents of the Textbooks folder but ignore the archive folder.
+choice="$(ls -I Archive ~/Documents/Textbooks | dmenu -i -l 50)"
+
+# As long as the choice is not NULL then open the textbook.
+if [ "X$choice" != "X" ]
+then
+  i3-msg exec okular $dir$choice
+#   if [ $choice =~ ^*\.pdf$ ]
+#   then
+#     # Open pdf viewer.
+#   fi
+#   if [ "*.djvu" =~ $choice ]
+# #   then 
+#     # Open djvu viewer. 
+#   fi
+fi
