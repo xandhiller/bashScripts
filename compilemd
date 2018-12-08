@@ -1,0 +1,4 @@
+#! /bin/sh
+
+pandoc -f markdown $1 -o /tmp/test.pdf
+nohup okular /tmp/test.pdf 2> /dev/null > /dev/null &

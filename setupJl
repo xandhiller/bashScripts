@@ -2,6 +2,6 @@
 
 dir="/home/polluticorn/GitHub/configuration/juliaWorkspace"
 
-cp $dir/tst.jl    . 
-cp $dir/Tmp.jl    .
-cp $dir/_init.jl  .
+cp -n $dir/tst.jl    . 
+cp -n $dir/Tmp.jl    .
+cp -n $dir/_init.jl  .
