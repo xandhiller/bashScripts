@@ -18,4 +18,4 @@ fi
 [ "$STATUS" = "Charging" ] && color="#FFFFF"
 
 
-echo "`sed -e "s/,//g;s/Discharging/🔋/;s/Charging/🔌/;s/Unknown/❓/;s/Full/⚡/;s/ 0*/ /g;s/ :/ /g" <<<"$STATUS"` `sed -e 's/$/%/' <<<"$NUM"`"
+echo "`sed -e "s/,//g;s/Discharging/[↓]/;s/Charging/[↑]/;s/Unknown/[-]/;s/Full/⌈x⌉/;s/ 0*/ /g;s/ :/ /g" <<<"$STATUS"` `sed -e 's/$/% /' <<<"$NUM"`"

@@ -8,7 +8,7 @@ choice="$(ls -I Archive ~/Documents/Textbooks | dmenu -i -l 80)"
 # As long as the choice is not NULL then open the textbook.
 if [ "X$choice" != "X" ]
 then
-  i3-msg exec okular $dir$choice
+  i3-msg exec zathura $dir$choice
 #   if [ $choice =~ ^*\.pdf$ ]
 #   then
 #     # Open pdf viewer.

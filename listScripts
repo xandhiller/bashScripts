@@ -1,15 +1,23 @@
-#! /bin/bash
+#! /bin/sh --
 
-dir="~/.scripts"
+dir="/home/polluticorn/.scripts/"
 newScript="+ New Script"
 dmenu="dmenu -i -l 50"
-suffix=".sh"
+choice="$(ls $dir | $dmenu)"
 
-choice="$((echo $newScript && find ~/.scripts -name '*.sh') | $dmenu)"
+# notify-send "X$choice"
 
-if [ "$choice" = "$newScript" ]
-then
-  name="$(echo "Enter Name of Script" | $dmenu )"
-  i3-msg exec --no-startup-id urxvt vim 
+# if [ "$choice" == "$newScript" ]
+#   then
+#   file="$dir$name"
+#   urxvt -e vim $file
+# fi
+
+if [ "X$choice" == "X" ]
+  then
+  return false
+else
+  file="$dir$choice"
+#  notify-send "$file"
+  urxvt -e vim $file
 fi
-
