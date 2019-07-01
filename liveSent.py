@@ -18,11 +18,6 @@ fileName  = fullPath.split('/')[-1]
 swpFile   = '.' + fileName + '.swp'
 pathHead  = fullPath.split(fileName)[0]
 
-command = 'echo ' + fullPath + \
-         ' | entr pandoc -f markdown ' +  \
-         fullPath + ' -o /tmp/livemd.pdf'
-
-openCommand = 'zathura /tmp/livemd.pdf'
+command = 'echo ' + fullPath + ' | entr -p $(pkill sent && sent ' + fullPath + ')'
 
 silentExecute(command)
-silentExecute(openCommand)

@@ -4,6 +4,6 @@ read -r X Y W H < <(slop -f "%x %y %w %h" -b 1 -t 0 -q)
 # To get these magic values, make a fullscreen st, and divide your screen width by ${tput cols}, height by ${tput lines} 
 (( W /= 8 ))
 (( H /= 13 ))
-g=${W}x${H}+${X}+${Y}
-urxvt -g $g -name floating
+g="[=][${W}<xX>${H}][{+-}${X}{+-}${Y}]"
+st -g $g -n floating
 

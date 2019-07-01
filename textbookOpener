@@ -9,12 +9,4 @@ choice="$(ls -I Archive ~/Documents/Textbooks | dmenu -i -l 80)"
 if [ "X$choice" != "X" ]
 then
   i3-msg exec zathura $dir$choice
-#   if [ $choice =~ ^*\.pdf$ ]
-#   then
-#     # Open pdf viewer.
-#   fi
-#   if [ "*.djvu" =~ $choice ]
-# #   then 
-#     # Open djvu viewer. 
-#   fi
 fi

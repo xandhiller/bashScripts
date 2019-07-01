@@ -1,20 +1,27 @@
-#! /bin/sh
-#1: Full path of file to be compiled
-#2: Directory
-#3: Filename
+#! /home/polluticorn/anaconda3/bin/python3
 
-fullPath="$1"
-
-# dir="$2/"
-# fileName="$3"
-
-notify-send "fullPath: $fullPath dir: $dir filename: $filename"
-
-# swpFile="$2.$3.swp"
+import os
+import sys
 
 
-# notify-send "Monitoring $swpFile"
+################################################################################
 
+# Used for debugging in i3
+def notifySend(string):
+  os.system('notify-send "' + string + '"')
 
-# echo "$swpFile" | entr pandoc -f markdown $fullPath -o /tmp/compileMd.pdf 
-#  nohup zathura /tmp/compileMd.pdf 2> /dev/null > /dev/null &
+def silentExecute(cmd):
+  os.system('nohup ' + cmd + ' 2> /dev/null > /dev/null &')
+
+################################################################################
+
+fullPath  = sys.argv[1]
+fileName  = fullPath.split('/')[-1]
+swpFile   = '.' + fileName + '.swp'
+pathHead  = fullPath.split(fileName)[0]
+
+command = 'echo ' + fullPath + \
+         ' | entr pandoc -f markdown ' +  \
+         fullPath + ' -o ' + pathHead + fileName + '.pdf'
+
+silentExecute(command)

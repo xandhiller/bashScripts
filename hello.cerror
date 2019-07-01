@@ -1,0 +1,10 @@
+hello.c: In function ‘main’:
+hello.c:16:3: error: expected ‘;’ before ‘return’
+   return 0;
+   ^
+hello.c:17:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+
+
+Tuesday 26 February  21:43:54 AEDT 2019

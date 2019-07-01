@@ -8,5 +8,5 @@ scrot "$tmpbg"
 
 convert "$tmpbg" -scale 10% -scale 1000% "$tmpbg" 
 convert "$tmpbg" -spread 1  "$tmpbg" 
-convert "$tmpbg" "$icon" -gravity center -composite "$tmpbg"
+# convert "$tmpbg" -gravity center -composite "$tmpbg"
 i3lock -u -i "$tmpbg"
