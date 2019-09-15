@@ -1,9 +1,13 @@
-#!/bin/bash
+#! /bin/sh --
 
-BAT=$(acpi -b | grep -E -o '[0-9][0-9]?%')
+# Get battery % value
+val=$(acpi | awk  'NR==2{ print $4 };' | sed -e "s/,//g")
+# Get current date and time
+datetime=$(date +%c)
+# Save data where
+battery_log="$HOME/.scripts/data/battery_log"
 
-# Full and short texts
-echo "Battery: $BAT"
-echo "BAT: $BAT"
-
-exit 0
+# Save data
+echo "$val" | sed -e 's/%//g' >> $battery_log
+# Echo it out
+echo $val

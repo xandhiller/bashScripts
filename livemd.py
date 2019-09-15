@@ -1,4 +1,4 @@
-#! /home/polluticorn/anaconda3/bin/python3
+#! /home/alex/anaconda3/bin/python3.7
 
 import os
 import sys
@@ -12,7 +12,6 @@ def silentExecute(cmd):
   os.system('nohup ' + cmd + ' 2> /dev/null > /dev/null &')
 
 ################################################################################
-  
 fullPath  = sys.argv[1]
 fileName  = fullPath.split('/')[-1]
 swpFile   = '.' + fileName + '.swp'
